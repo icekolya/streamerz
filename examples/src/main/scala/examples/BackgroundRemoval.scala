@@ -9,7 +9,7 @@ import com.jsuereth.video.swing
 
 object BackgroundRemoval {
   def main(args: Array[String]): Unit = {
-    val url = "/home/michael/vlad/1080.mp4"
+    val url = "file:E:/Projects/Scala/streamerz/videos/slow_motion_back_flip.mp4"
     implicit val system = ActorSystem()
     val settings = ActorMaterializerSettings.create(system)
     def video() = com.jsuereth.video.ffmpeg.readVideoURI(new java.net.URI(url), system, playAudio = false)

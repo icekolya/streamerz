@@ -106,6 +106,12 @@ class DualListBox(var sourceListModel: mutable.ListBuffer[FilterMeta],
 
   private var removeButton: JButton = _
 
+  private var redSlider: JSlider = _
+
+  private var greenSlider: JSlider = _
+
+  private var blueSlider: JSlider = _
+
   initScreen()
 
   def clearSourceListModel() {
@@ -167,16 +173,19 @@ class DualListBox(var sourceListModel: mutable.ListBuffer[FilterMeta],
 
   private def initScreen() {
     setLayout(new GridLayout(0, 2))
-    sourceList = new JList(sourceListModel.toArray)
-    addButton = new JButton(">>")
-    addButton.addActionListener(new AddListener())
+    //sourceList = new JList(sourceListModel.toArray)
+    //addButton = new JButton(">>")
+    //addButton.addActionListener(new AddListener())
+    redSlider = new JSlider()
+    redSlider.setOrientation(0)
     removeButton = new JButton("<<")
     removeButton.addActionListener(new RemoveListener())
     destList = new JList(destListModel.toArray)
     val leftPanel = new JPanel(new BorderLayout())
     leftPanel.add(new JLabel("Available Elements:"), BorderLayout.NORTH)
     leftPanel.add(new JScrollPane(sourceList), BorderLayout.CENTER)
-    leftPanel.add(addButton, BorderLayout.SOUTH)
+    //leftPanel.add(addButton, BorderLayout.SOUTH)
+    leftPanel.add(redSlider, BorderLayout.SOUTH)
     val rightPanel = new JPanel(new BorderLayout())
     rightPanel.add(new JLabel("Selected Elements:"), BorderLayout.NORTH)
     rightPanel.add(new JScrollPane(destList), BorderLayout.CENTER)
